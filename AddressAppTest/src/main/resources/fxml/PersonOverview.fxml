@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="311.0" prefWidth="485.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="311.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MapController">
   <!-- TODO Add Nodes -->
   <children>
     <SplitPane dividerPositions="0.4161490683229814" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="311.0" prefWidth="485.0">
@@ -20,7 +20,7 @@
             </TableView>
           </children>
         </AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="279.0">
           <children>
             <GridPane layoutX="1.0" layoutY="14.0" prefHeight="269.0" prefWidth="279.0">
               <children>
@@ -28,17 +28,20 @@
                 <Label text="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label text="EMail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label text="School" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Label text="Subject" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <Label prefWidth="99.0" text="${surname.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <Label text="Subject" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                <Label fx:id="surenameV" prefWidth="99.0" text="${surname.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                 <TextField fx:id="surname" text="" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <Label text="${name.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="nameV" prefHeight="17.0" prefWidth="110.0" text="${name.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <TextField fx:id="name" text="" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label text="${eMail.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label fx:id="mailV" prefHeight="17.0" prefWidth="111.0" text="${eMail.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <TextField fx:id="eMail" text="" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <Label text="${school.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Label fx:id="schoolV" prefHeight="17.0" prefWidth="116.0" text="${school.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                 <TextField fx:id="school" text="" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <Label text="${subject.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label fx:id="subjectV" prefHeight="17.0" prefWidth="111.0" text="${subject.text}" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                 <TextField fx:id="subject" text="" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" onAction="#handelButtonNew" text="New" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#handelButtonEdit" text="Edit" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#handelButtonDelete" text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="6" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.0" minWidth="9.0" prefWidth="16.0" />
@@ -52,6 +55,8 @@
                 <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="64.0" prefHeight="53.0" />
+                        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="53.0" />
+                        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="53.0" />
               </rowConstraints>
             </GridPane>
           </children>
