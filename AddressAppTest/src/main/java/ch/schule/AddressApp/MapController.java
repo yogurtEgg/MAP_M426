@@ -29,10 +29,9 @@ public class MapController  {
         Person p = new Person(surename.getText(), name.getText(), eMail.getText(), school.getText(), subject.getText());
         model.addPerson(p);
         //Personen anzeigen
-
-
-
+        
     }
+
     @FXML
     private void handleButtonEdit(ActionEvent event){
        /*todo
@@ -41,14 +40,13 @@ public class MapController  {
         surenameV.setText(p1.getSurename());
         mailV.setText(p1.getMail());
         schoolV.setText(p1.getSchool());
-
         */
     }
+
     @FXML
     private void handleButtonDelete(ActionEvent event){
         //todo
         //model.deletePerson();
     }
-
 
 }
