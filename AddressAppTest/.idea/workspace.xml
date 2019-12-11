@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a13621a-a1a2-469b-9e80-e17deee66719" name="Default Changelist" comment="" />
+    <list default="true" id="4a13621a-a1a2-469b-9e80-e17deee66719" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddressApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AddressApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/schule/AddressApp/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/schule/AddressApp/MapController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +26,30 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.schule.AddressApp.MainApp" />
+      <module name="AddressApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ch.schule.AddressApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -45,6 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576009598931</updated>
       <workItem from="1576009608654" duration="861000" />
+      <workItem from="1576075687852" duration="545000" />
     </task>
     <servers />
   </component>
@@ -52,10 +82,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="710" y="406" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576009747442">
+    <state x="710" y="406" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576075846816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="710" y="406" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576009747442" />
+    <state x="710" y="406" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576075846816" />
     <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576009608969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

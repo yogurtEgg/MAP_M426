@@ -5,8 +5,10 @@ package ch.schule.AddressApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +16,8 @@ import java.util.ResourceBundle;
 
 public class MapController  {
     private PersonModel model;
+    @FXML
+    GridPane grid;
     @FXML
     TextField surename, name, eMail, subject, school;
     @FXML
@@ -34,7 +38,10 @@ public class MapController  {
 
     @FXML
     private void handleButtonEdit(ActionEvent event){
-       /*todo
+       for(Node child : grid.getChildren()){
+           child.setVisible(!child.isVisible());
+       }
+        /*todo
         subjectV.setText(p1.getSubject());
         nameV.setText(p1.getName());
         surenameV.setText(p1.getSurename());
