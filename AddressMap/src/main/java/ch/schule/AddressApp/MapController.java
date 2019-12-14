@@ -2,16 +2,19 @@ package ch.schule.AddressApp;
 
 
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 
+import com.sun.javafx.scene.NodeEventDispatcher;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventType;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 public class MapController  {
@@ -22,39 +25,96 @@ public class MapController  {
     TextField firstname, lastname, eMail, subject, school;
     @FXML
     Label firstnameLabel, lastnameLabel, mailLabel, subjectLabel, schoolLabel;
-
+    @FXML
+    TableView table;
+    
+    int newestID;
+    Person selectedPerson;
 
     public MapController() {
         this.model = new PersonModel();
     }
+    
+    public void initialize(){
+    	//Tabelle wird initialized. addListener = Funktion
+    	//Ermölicht Selektierung
+    	table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+    	    if (newSelection != null) {
+    	    	//Bestätigung selektierung
+    	        System.out.println("Selection: " + newSelection);
+    	        //setPerson Methode aufgerufen
+    	        setPerson((Person) newSelection);
+    	    }
+    	});
+    	
+    	//Erstellt Columns der Tabelle
+    	TableColumn firstNameCol = new TableColumn("First Name");
+        firstNameCol.setMinWidth(100);
+        firstNameCol.setCellValueFactory(
+                new PropertyValueFactory<>("firstName"));
+ 
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        lastNameCol.setMinWidth(100);
+        lastNameCol.setCellValueFactory(
+                new PropertyValueFactory<>("lastName"));
+        
+        //Befüllt Tabelle mit bestehenden Einträgen
+        table.setItems(model.getPeople());
+        table.getColumns().addAll(firstNameCol, lastNameCol);
+    }
 
-    @FXML
+    
+    /**
+     * Befüllt Textfelder mit INformationen der Person
+     * @param person Ausgewählte Person
+     */
+    private void setPerson(Person person) {
+    	firstname.setText(person.getFirstName());
+    	lastname.setText(person.getLastName());
+    	eMail.setText(person.getMail());
+    	subject.setText(person.getSubject());
+    	school.setText(person.getSchool());
+    	selectedPerson = person;
+	}
+
+    /**
+     * Is im Moment save Buttons für News
+     * 
+     * @param event
+     */
+	@FXML
     private void handleButtonNew(ActionEvent event) {
-        Person p = new Person(firstname.getText(), lastname.getText(), eMail.getText(), school.getText(), subject.getText());
+        Person p = new Person(firstname.getText(), lastname.getText(), eMail.getText(), school.getText(), subject.getText(), newestID);
         model.addPerson(p);
-        //Personen anzeigen
+        //TODO: Textfelder müssen leer gemacht werden und neue TabellenSpalte muss ausgewählt werden.
         
     }
 
+	/**
+	 * Ist im Moment save Button für edits, nur Firstname kann bearbeitet werden
+	 * @param event
+	 */
     @FXML
     private void handleButtonEdit(ActionEvent event){
-       for(Node child : grid.getChildren()){
-           child.setVisible(!child.isVisible());
+       if(selectedPerson != null) {
+    	   //(test) TODO: Vervollständigen
+    	   selectedPerson.setFirstName(firstname.getText());
+    	   //refreshed Tabelle
+    	   table.refresh();
        }
-        /*todo
-        subjectV.setText(p1.getSubject());
-        nameV.setText(p1.getName());
-        surenameV.setText(p1.getSurename());
-        mailV.setText(p1.getMail());
-        schoolV.setText(p1.getSchool());
-        */
        
     }
-
-    @FXML
+    
+    /**
+     * macht nichts
+     * 
+     * @param event
+     */
+	@FXML
     private void handleButtonDelete(ActionEvent event){
-        //todo
-        //model.deletePerson();
+    	System.out.println("Deletes");
+    
+        //TODO: model.deletePerson(); und Textfields löschen
     }
 
 }

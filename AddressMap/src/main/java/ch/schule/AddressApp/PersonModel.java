@@ -2,21 +2,24 @@ package ch.schule.AddressApp;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class PersonModel {
-    private ArrayList<Person> people;
+	 private final ObservableList<Person> people;
 
     public PersonModel() {
-        this.people = new ArrayList<>();
+    	people = FXCollections.observableArrayList();
     }
 
     //GETTER & SETTER
-    public ArrayList<Person> getPeople(){
+    public ObservableList<Person> getPeople(){
         return people;
     }
 
-    public Person getPersonWID(int index) {
+    public Person getPersonWID(int id) {
         for(Person p : people){
-            if(p.getIndex() == index){
+            if(p.getid() == id){
                 return p;
             }
         }
@@ -30,15 +33,6 @@ public class PersonModel {
 
     public void deletePerson(Person p){
         people.remove(p);
-    }
-
-    public void editPerson(String nSurname, String nName,  String nMail, String nSchool, String nSubject, int index){
-        Person tmpPerson = getPersonWID(index);
-        tmpPerson.setSurename(nSurname);
-        tmpPerson.setName(nName);
-        tmpPerson.setMail(nMail);
-        tmpPerson.setSchool(nSchool);
-        tmpPerson.setSubject(nSubject);
     }
 
 }

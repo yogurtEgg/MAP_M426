@@ -1,42 +1,39 @@
 package ch.schule.AddressApp;
 
 public class Person {
-    private String surename;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String mail;
     private String school;
     private String subject;
-    private int index;
+    private int id;
 
     public Person (){
         super();
     }
-    public Person(String surename, String name, String mail, String school, String subject) {
-        this.surename = surename;
-        this.name = name;
+    public Person(String firstName, String lastName, String mail, String school, String subject, int id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.mail = mail;
         this.school = school;
         this.subject = subject;
+        this.id = id;
     }
 
-    public String getSurename() {
-        return surename;
-    }
-
-    public void setSurename(String surename) {
-        this.surename = surename;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getIndex() {
-        return index;
+    public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public int getid() {
+        return id;
     }
 
     public String getMail() {
@@ -62,5 +59,11 @@ public class Person {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", mail=" + mail + ", school=" + school
+				+ ", subject=" + subject + ", id=" + id + "]";
+	}
 
+    
 }
