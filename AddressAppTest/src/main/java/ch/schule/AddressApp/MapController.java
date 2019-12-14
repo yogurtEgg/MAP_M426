@@ -1,7 +1,5 @@
 package ch.schule.AddressApp;
 
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +11,6 @@ import javafx.scene.layout.GridPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class MapController  {
     private PersonModel model;
     @FXML
@@ -22,7 +19,6 @@ public class MapController  {
     TextField surename, name, eMail, subject, school;
     @FXML
     Label surenameV, nameV, mailV, subjectV, schoolV;
-
 
     public MapController() {
         this.model = new PersonModel();
