@@ -14,8 +14,7 @@ public class MainApp extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
 
-    @SuppressWarnings("restriction")
-	@Override
+    @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
@@ -40,7 +39,7 @@ public class MainApp extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
-            throw new RuntimeException("Cannot init Root Layout", e);  
+            e.printStackTrace();  
         }
     }
 
@@ -57,7 +56,7 @@ public class MainApp extends Application {
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);
         } catch (IOException e) {
-            throw new RuntimeException("Cannot load PersonView", e);
+            e.printStackTrace();
         }
     }
 
