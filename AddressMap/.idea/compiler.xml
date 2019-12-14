@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AddressMap" />
+        <module name="AddressApp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AddressMap" target="1.7" />
+      <module name="AddressApp" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

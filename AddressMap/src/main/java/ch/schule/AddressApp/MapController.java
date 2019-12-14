@@ -19,9 +19,9 @@ public class MapController  {
     @FXML
     GridPane grid;
     @FXML
-    TextField surename, name, eMail, subject, school;
+    TextField firstname, lastname, eMail, subject, school;
     @FXML
-    Label surenameV, nameV, mailV, subjectV, schoolV;
+    Label firstnameLabel, lastnameLabel, mailLabel, subjectLabel, schoolLabel;
 
 
     public MapController() {
@@ -29,8 +29,8 @@ public class MapController  {
     }
 
     @FXML
-    private void handleButtonAdd(ActionEvent event) {
-        Person p = new Person(surename.getText(), name.getText(), eMail.getText(), school.getText(), subject.getText());
+    private void handleButtonNew(ActionEvent event) {
+        Person p = new Person(firstname.getText(), lastname.getText(), eMail.getText(), school.getText(), subject.getText());
         model.addPerson(p);
         //Personen anzeigen
         
@@ -48,6 +48,7 @@ public class MapController  {
         mailV.setText(p1.getMail());
         schoolV.setText(p1.getSchool());
         */
+       
     }
 
     @FXML
