@@ -39,15 +39,15 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                       <Label text="Surname" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                       <Label text="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                       <Label text="Firstname" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                       <Label text="Lastname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                        <Label text="EMail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                        <Label text="School" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                        <Label text="Subject" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
                        <!--<Label fx:id="surenameLabel" prefWidth="99.0" text="${surname.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="0" />-->
-                       <TextField fx:id="first name" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                       <TextField fx:id="firstname" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                        <!-- <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="110.0" text="${name.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" /> -->
-                       <TextField fx:id="last name" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                       <TextField fx:id="lastname" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                        <!--<Label fx:id="mailLabel" prefHeight="17.0" prefWidth="111.0" text="${eMail.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />-->
                        <TextField fx:id="eMail" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                        <!--<Label fx:id="schoolLabel" prefHeight="17.0" prefWidth="116.0" text="${school.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />-->
