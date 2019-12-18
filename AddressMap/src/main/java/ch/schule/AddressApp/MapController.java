@@ -65,7 +65,7 @@ public class MapController  {
 
     
     /**
-     * Befüllt Textfelder mit INformationen der Person
+     * Befüllt Textfelder mit Informationen der Person
      * @param person Ausgewählte Person
      */
     private void setPerson(Person person) {
@@ -97,8 +97,11 @@ public class MapController  {
     @FXML
     private void handleButtonEdit(ActionEvent event){
        if(selectedPerson != null) {
-    	   //(test) TODO: Vervollständigen
-    	   selectedPerson.setFirstName(firstname.getText());
+    	   selectedPerson.setLastName(lastname.getText());
+           selectedPerson.setFirstName(firstname.getText());
+           selectedPerson.setMail(eMail.getText());
+           selectedPerson.setSchool(school.getText());
+           selectedPerson.setSubject(subject.getText());
     	   //refreshed Tabelle
     	   table.refresh();
        }
@@ -112,9 +115,13 @@ public class MapController  {
      */
 	@FXML
     private void handleButtonDelete(ActionEvent event){
-    	System.out.println("Deletes");
-    
-        //TODO: model.deletePerson(); und Textfields löschen
+	    model.deletePerson(selectedPerson);
+	    lastname.setText(null);
+	    firstname.setText(null);
+	    eMail.setText(null);
+	    subject.setText(null);
+	    school.setText(null);
+        //TODO: model.deletePerson(); und Techenxtfields lös
     }
 
 }
