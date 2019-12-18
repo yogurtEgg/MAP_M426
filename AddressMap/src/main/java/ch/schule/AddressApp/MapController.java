@@ -5,19 +5,25 @@ package ch.schule.AddressApp;
 
 import com.sun.javafx.scene.NodeEventDispatcher;
 
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
-public class MapController  {
+
+public class MapController {
     private PersonModel model;
     @FXML
     GridPane grid;
@@ -27,6 +33,8 @@ public class MapController  {
     Label firstnameLabel, lastnameLabel, mailLabel, subjectLabel, schoolLabel;
     @FXML
     TableView table;
+    @FXML
+    MenuBar menubar;
     
     int newestID;
     Person selectedPerson;
@@ -46,7 +54,7 @@ public class MapController  {
     	        setPerson((Person) newSelection);
     	    }
     	});
-    	
+
     	//Erstellt Columns der Tabelle
     	TableColumn firstNameCol = new TableColumn("First Name");
         firstNameCol.setMinWidth(100);
@@ -123,5 +131,20 @@ public class MapController  {
 	    school.setText(null);
         //TODO: model.deletePerson(); und Techenxtfields lös
     }
+    /**
+     * Opens a Mail-Programm
+     * @param actionEvent
+     */
+    public void handleButtonMail(ActionEvent actionEvent) throws IOException, URISyntaxException {
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+            if (desktop.isSupported(Desktop.Action.MAIL)) {
+                URI mailto = new URI("mailto:"+eMail.getText());
+                desktop.mail(mailto);
+            }
+        }
+    }
+
+
 
 }

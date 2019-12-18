@@ -84,6 +84,9 @@
 											<Button mnemonicParsing="false" text="Delete"
 												GridPane.columnIndex="2"
 												GridPane.rowIndex="5" onAction="#handleButtonDelete"/>
+										<Button mnemonicParsing="false" text="Mail"
+												GridPane.columnIndex="3"
+												GridPane.rowIndex="5" onAction="#handleButtonMail"/>
 									</children>
 								</GridPane>
 								<GridPane layoutX="43.0" layoutY="104.0"
