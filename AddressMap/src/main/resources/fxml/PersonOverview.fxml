@@ -1,141 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0"
-	xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.AddressApp.MapController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.AddressApp.MapController">
 	<children>
-		<SplitPane dividerPositions="0.29797979797979796" layoutX="153.0"
-			layoutY="70.0" prefHeight="300.0" prefWidth="600.0"
-			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<SplitPane dividerPositions="0.29797979797979796" layoutX="153.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<items>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
-					prefWidth="100.0">
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
 					<children>
-						<TableView fx:id="table" layoutX="-12.0" layoutY="49.0" prefHeight="298.0"
-							prefWidth="175.0" AnchorPane.bottomAnchor="0.0"
-							AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-							AnchorPane.topAnchor="0.0">
+						<TableView fx:id="table" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 						</TableView>
 					</children>
 				</AnchorPane>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0"
-					prefWidth="100.0">
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="100.0">
 					<children>
-						<Label layoutX="104.0" layoutY="51.0" text="Person Details"
-							AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-						<GridPane layoutX="43.0" layoutY="104.0"
-							AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
-							AnchorPane.topAnchor="30.0">
+						<Label layoutX="104.0" layoutY="51.0" text="Person Details" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+						<GridPane layoutX="43.0" layoutY="104.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
 							<columnConstraints>
-								<ColumnConstraints hgrow="SOMETIMES" minWidth="100.0"
-									prefWidth="100.0" />
-								<ColumnConstraints hgrow="SOMETIMES" minWidth="100.0"
-									prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
 							</columnConstraints>
 							<rowConstraints>
-								<RowConstraints minHeight="200.0" prefHeight="200.0"
-									vgrow="SOMETIMES" />
+								<RowConstraints minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
 							</rowConstraints>
 							<children>
-								<GridPane layoutX="43.0" layoutY="104.0"
-									AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
-									AnchorPane.topAnchor="30.0" GridPane.columnIndex="0"
-									GridPane.rowIndex="0">
+								<GridPane layoutX="43.0" layoutY="104.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
 									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES"
-											minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
 									</columnConstraints>
 									<rowConstraints>
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
-										<Label text="Firstname" GridPane.columnIndex="0"
-											GridPane.rowIndex="0" />
-										<Label text="Lastname" GridPane.columnIndex="0"
-											GridPane.rowIndex="1" />
-										<Label text="EMail" GridPane.columnIndex="0"
-											GridPane.rowIndex="2" />
-										<Label text="School" GridPane.columnIndex="0"
-											GridPane.rowIndex="3" />
-										<Label text="Subject" GridPane.columnIndex="0"
-											GridPane.rowIndex="4" />
-											<Button mnemonicParsing="false" text="New..."
-												GridPane.columnIndex="0"
-												GridPane.rowIndex="5" onAction="#handleButtonNew" />
-											<Button mnemonicParsing="false" text="Edit..."
-												GridPane.columnIndex="1"
-												GridPane.rowIndex="5" onAction="#handleButtonEdit"/>
-											<Button mnemonicParsing="false" text="Delete"
-												GridPane.columnIndex="2"
-												GridPane.rowIndex="5" onAction="#handleButtonDelete"/>
-										<Button mnemonicParsing="false" text="Mail"
-												GridPane.columnIndex="3"
-												GridPane.rowIndex="5" onAction="#handleButtonMail"/>
+										<Label text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+										<Label text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+										<Label text="EMail" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+										<Label text="School" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+										<Label text="Subject" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+											<Button fx:id="btnNew" mnemonicParsing="false" onAction="#handleButtonNew" text="New..." GridPane.columnIndex="0" GridPane.rowIndex="5" />
+											<Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handleButtonEdit" text="Edit..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+											<Button fx:id="btnDel" mnemonicParsing="false" onAction="#handleButtonDelete" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+										<Button mnemonicParsing="false" onAction="#handleButtonMail" text="Mail" GridPane.columnIndex="3" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
-								<GridPane layoutX="43.0" layoutY="104.0"
-									AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
-									AnchorPane.topAnchor="30.0" GridPane.columnIndex="1"
-									GridPane.rowIndex="0" fx:id="grid" >
+								<GridPane fx:id="grid" layoutX="43.0" layoutY="104.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
 									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES"
-											minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
 									</columnConstraints>
 									<rowConstraints>
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0"
-											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
 										<!--<Label fx:id="surenameLabel" prefWidth="99.0" text="${surname.text}" 
 											visible="false" GridPane.columnIndex="2" GridPane.rowIndex="0" /> -->
-										<TextField fx:id="firstname" text="" visible="true"
-											GridPane.columnIndex="2" GridPane.rowIndex="0" />
+										<TextField fx:id="firstname" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
 										<!-- <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="110.0" 
 											text="${name.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" 
 											/> -->
-										<TextField fx:id="lastname" text="" visible="true"
-											GridPane.columnIndex="2" GridPane.rowIndex="1" />
+										<TextField fx:id="lastname" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 										<!--<Label fx:id="mailLabel" prefHeight="17.0" prefWidth="111.0" 
 											text="${eMail.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" 
 											/> -->
-										<TextField fx:id="eMail" text="" visible="true"
-											GridPane.columnIndex="2" GridPane.rowIndex="2" />
+										<TextField fx:id="eMail" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 										<!--<Label fx:id="schoolLabel" prefHeight="17.0" prefWidth="116.0" 
 											text="${school.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" 
 											/> -->
-										<TextField fx:id="school" text="" visible="true"
-											GridPane.columnIndex="2" GridPane.rowIndex="3" />
+										<TextField fx:id="school" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 										<!--<Label fx:id="subjectLabel" prefHeight="17.0" prefWidth="111.0" 
 											text="${subject.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" 
 											/> -->
-										<TextField fx:id="subject" text="" visible="true"
-											GridPane.columnIndex="2" GridPane.rowIndex="4" />
+										<TextField fx:id="subject" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 									</children>
 								</GridPane>
 							</children>

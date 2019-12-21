@@ -59,11 +59,10 @@ public class Person {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
 	@Override
 	public String toString() {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", mail=" + mail + ", school=" + school
 				+ ", subject=" + subject + ", id=" + id + "]";
 	}
-
-    
 }

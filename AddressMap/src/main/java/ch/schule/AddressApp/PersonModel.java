@@ -34,5 +34,4 @@ public class PersonModel {
     public void deletePerson(Person p){
         people.remove(p);
     }
-
 }

@@ -1,8 +1,5 @@
 package ch.schule.AddressApp;
 
-
-
-
 import com.sun.javafx.scene.NodeEventDispatcher;
 
 import javafx.application.Application;
@@ -21,7 +18,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 
 public class MapController {
     private PersonModel model;
@@ -129,7 +125,7 @@ public class MapController {
 	    eMail.setText(null);
 	    subject.setText(null);
 	    school.setText(null);
-        //TODO: model.deletePerson(); und Techenxtfields lös
+        //TODO: model.deletePerson(); und Textfields löschen
     }
     /**
      * Opens a Mail-Programm
@@ -144,7 +140,4 @@ public class MapController {
             }
         }
     }
-
-
-
 }
