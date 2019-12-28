@@ -17,7 +17,7 @@ public class PersonModel {
         return people;
     }
 
-    public Person getPersonWID(int id) {
+    public Person getPersonID(int id) {
         for(Person p : people){
             if(p.getid() == id){
                 return p;
@@ -26,6 +26,20 @@ public class PersonModel {
         return null;
     }
 
+    public boolean personExists(Person person){
+
+        if(person!=null && person.getid()!=null){
+            for(Person p : people){
+                if(p.getid() == person.getid()){
+                    System.out.println("exists");
+                    return true;
+                }
+            }
+        }
+        System.out.println("does not exist");
+        return false;
+
+    }
     //METHODS
     public void addPerson(Person p){
         people.add(p);

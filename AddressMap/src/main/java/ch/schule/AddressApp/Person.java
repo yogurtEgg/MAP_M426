@@ -6,7 +6,7 @@ public class Person {
     private String mail;
     private String school;
     private String subject;
-    private int id;
+    private Integer id;
 
     public Person (){
         super();
@@ -32,7 +32,7 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getid() {
+	public Integer getid() {
         return id;
     }
 
@@ -65,4 +65,8 @@ public class Person {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", mail=" + mail + ", school=" + school
 				+ ", subject=" + subject + ", id=" + id + "]";
 	}
+
+    public void setID(Integer id) {
+        this.id = id;
+    }
 }
