@@ -65,6 +65,7 @@ public class MapController {
         //Befüllt Tabelle mit bestehenden Einträgen
         table.setItems(model.getPeople());
         table.getColumns().addAll(firstNameCol, lastNameCol);
+        System.out.println("successfully initialized");
     }
 
 
@@ -80,19 +81,19 @@ public class MapController {
         subject.setText(person.getSubject());
         school.setText(person.getSchool());
         selectedPerson = person;
+        System.out.println("New selected Person");
     }
 
 
-   /** @FXML
-    public void handleButtonSave(ActionEvent actionEvent) {
-        if (!textfieldNotNull()) {
-            System.out.println(school.getText().length());
-            Person p = new Person(firstname.getText(), lastname.getText(), eMail.getText(), school.getText(), subject.getText(), newestID);
-            if (p.getSchool().length() != 3) {
-                requiredSchool.setText("Needs exactly three letters");
-                System.out.println("error");
-            }
-        }
+    /** @FXML public void handleButtonSave(ActionEvent actionEvent) {
+    if (!textfieldNotNull()) {
+    System.out.println(school.getText().length());
+    Person p = new Person(firstname.getText(), lastname.getText(), eMail.getText(), school.getText(), subject.getText(), newestID);
+    if (p.getSchool().length() != 3) {
+    requiredSchool.setText("Needs exactly three letters");
+    System.out.println("error");
+    }
+    }
     }**/
 
     /**
@@ -102,14 +103,16 @@ public class MapController {
      */
     @FXML
     private void handleButtonNew(ActionEvent event) {
-        if(selectedPerson!=null) {
+        if (selectedPerson != null) {
             selectedPerson.setID(null);
+            System.out.println("Id removed");
         }
         lastname.setText(null);
         firstname.setText(null);
         eMail.setText(null);
         subject.setText(null);
         school.setText(null);
+        System.out.println("Textfields empty");
     }
 
     /**
@@ -123,7 +126,7 @@ public class MapController {
         if (!textfieldNotNull()) {
             if (school.getText().length() != 3) {
                 requiredSchool.setText("Needs exactly three letters");
-                System.out.println("error");
+                System.out.println("error while saving");
             } else {
                 Person p = new Person();
                 p.setSubject(subject.getText());
@@ -131,16 +134,15 @@ public class MapController {
                 p.setMail(eMail.getText());
                 p.setFirstName(firstname.getText());
                 p.setLastName(lastname.getText());
-                test = model.personExists(selectedPerson);
                 if (model.personExists(selectedPerson)) {
-                        selectedPerson.setLastName(lastname.getText());
-                        selectedPerson.setFirstName(firstname.getText());
-                        selectedPerson.setMail(eMail.getText());
-                        selectedPerson.setSchool(school.getText());
-                        selectedPerson.setSubject(subject.getText());
-                        //refreshed Tabelle
-                        table.refresh();
-                        System.out.println("succesfully edited");
+                    selectedPerson.setLastName(lastname.getText());
+                    selectedPerson.setFirstName(firstname.getText());
+                    selectedPerson.setMail(eMail.getText());
+                    selectedPerson.setSchool(school.getText());
+                    selectedPerson.setSubject(subject.getText());
+                    //refreshed Tabelle
+                    table.refresh();
+                    System.out.println("succesfully edited");
                 } else {
                     p.setID(newestID++);
                     model.addPerson(p);
@@ -166,7 +168,6 @@ public class MapController {
         subject.setText(null);
         school.setText(null);
 
-
         System.out.println("successfully deleted: " + selectedPerson);
     }
 
@@ -176,13 +177,7 @@ public class MapController {
      * @param actionEvent
      */
     public void handleButtonMail(ActionEvent actionEvent) throws IOException, URISyntaxException {
-        if (Desktop.isDesktopSupported()) {
-            Desktop desktop = Desktop.getDesktop();
-            if (desktop.isSupported(Desktop.Action.MAIL)) {
-                URI mailto = new URI("mailto:" + eMail.getText());
-                desktop.mail(mailto);
-            }
-        }
+        mail();
     }
 
     public boolean textfieldNotNull() {
@@ -197,5 +192,16 @@ public class MapController {
             correct = false;
         }
         return correct;
+    }
+
+    public void mail() throws IOException, URISyntaxException {
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+            if (desktop.isSupported(Desktop.Action.MAIL)) {
+                URI mailto = new URI("mailto:" + eMail.getText());
+                desktop.mail(mailto);
+                System.out.println("Mail to " +eMail.getText() + "send");
+            }
+        }
     }
 }
