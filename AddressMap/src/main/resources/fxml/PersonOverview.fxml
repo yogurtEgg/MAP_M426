@@ -1,105 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.AddressApp.MapController">
-	<children>
-		<SplitPane dividerPositions="0.29797979797979796" layoutX="153.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-			<items>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-					<children>
-						<TableView fx:id="table" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-						</TableView>
-					</children>
-				</AnchorPane>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="100.0">
-					<children>
-						<Label layoutX="104.0" layoutY="51.0" text="Person Details" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-						<GridPane layoutX="43.0" layoutY="104.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
-							<columnConstraints>
-								<ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-								<ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-							</columnConstraints>
-							<rowConstraints>
-								<RowConstraints minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-							</rowConstraints>
-							<children>
-								<GridPane layoutX="43.0" layoutY="104.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints />
-                              <ColumnConstraints />
-                              <ColumnConstraints />
-									</columnConstraints>
-									<rowConstraints>
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-									</rowConstraints>
-									<children>
-										<Label text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-										<Label text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-										<Label text="EMail" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-										<Label text="School" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-										<Label text="Subject" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-											<Button fx:id="btnNew" mnemonicParsing="false" onAction="#handleButtonNew" text="New..." GridPane.columnIndex="0" GridPane.rowIndex="5" />
-											<Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handleButtonEdit" text="Edit..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
-											<Button fx:id="btnDel" mnemonicParsing="false" onAction="#handleButtonDelete" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-										<Button mnemonicParsing="false" onAction="#handleButtonMail" text="Mail" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-									</children>
-								</GridPane>
-								<GridPane fx:id="grid" layoutX="43.0" layoutY="104.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints />
-                              <ColumnConstraints />
-									</columnConstraints>
-									<rowConstraints>
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-									</rowConstraints>
-									<children>
-										<!--<Label fx:id="surenameLabel" prefWidth="99.0" text="${surname.text}" 
-											visible="false" GridPane.columnIndex="2" GridPane.rowIndex="0" /> -->
-										<TextField fx:id="firstname" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-										<!-- <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="110.0" 
-											text="${name.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" 
-											/> -->
-										<TextField fx:id="lastname" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-										<!--<Label fx:id="mailLabel" prefHeight="17.0" prefWidth="111.0" 
-											text="${eMail.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" 
-											/> -->
-										<TextField fx:id="eMail" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-										<!--<Label fx:id="schoolLabel" prefHeight="17.0" prefWidth="116.0" 
-											text="${school.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" 
-											/> -->
-										<TextField fx:id="school" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-										<!--<Label fx:id="subjectLabel" prefHeight="17.0" prefWidth="111.0" 
-											text="${subject.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" 
-											/> -->
-										<TextField fx:id="subject" text="" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-									</children>
-								</GridPane>
-							</children>
-						</GridPane>
-					</children>
-				</AnchorPane>
-			</items>
-		</SplitPane>
-	</children>
+<AnchorPane prefHeight="359.0" prefWidth="679.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.schule.AdressMAP.MapController">
+  <children>
+    <SplitPane disable="false" dividerPositions="0.40029542097488924" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="false" opacity="1.0" prefHeight="300.0" prefWidth="600.0" style=" -fx-background-color: #545454;" visible="true" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+          <children>
+            <Button id="btnNew" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonNew" prefWidth="-1.0" style="" text="new" GridPane.columnIndex="0" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+              <GridPane.margin>
+                <Insets left="5.0" right="5.0" />
+              </GridPane.margin>
+            </Button>
+            <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" style="" styleClass="tableBG" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+            <TextField fx:id="search" prefWidth="-1.0" style="" styleClass="tableBG" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+              <GridPane.margin>
+                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+              </GridPane.margin>
+            </TextField>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <padding>
+            <Insets />
+          </padding>
+          <rowConstraints>
+            <RowConstraints maxHeight="348.0" minHeight="10.0" prefHeight="273.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="NEVER" />
+          </rowConstraints>
+        </GridPane>
+        <GridPane fx:id="grid" gridLinesVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="403.0">
+          <children>
+            <!--<Label fx:id="surenameLabel" prefWidth="99.0" text="${surname.text}"
+                                                                                visible="false" GridPane.columnIndex="2" GridPane.rowIndex="0" /> -->
+            <TextField fx:id="firstname" alignment="CENTER_LEFT" style="" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+              <GridPane.margin>
+                <Insets bottom="5.0" top="5.0" fx:id="x2" />
+              </GridPane.margin>
+            </TextField>
+            <!-- <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="110.0"
+                                                                                text="${name.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1"
+                                                                                /> -->
+            <TextField fx:id="lastname" style="" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="2" />
+            <!--<Label fx:id="mailLabel" prefHeight="17.0" prefWidth="111.0"
+                                                                                text="${eMail.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2"
+                                                                                /> -->
+            <TextField fx:id="eMail" style="" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="3" />
+            <!--<Label fx:id="schoolLabel" prefHeight="17.0" prefWidth="116.0"
+                                                                                text="${school.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3"
+                                                                                /> -->
+            <TextField fx:id="school" style="" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="4" />
+            <!--<Label fx:id="subjectLabel" prefHeight="17.0" prefWidth="111.0"
+                                                                                text="${subject.text}" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4"
+                                                                                /> -->
+            <TextField fx:id="subject" style="" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="5" />
+            <Label fx:id="requiredLastname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="requiredMail" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="requiredSchool" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="requiredSubject" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label style="-fx-text-fill: #bfbfbf;" styleClass="labelTXT" text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label style="-fx-text-fill: #bfbfbf;" styleClass="labelTXT" text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label prefHeight="26.0" prefWidth="54.0" style="-fx-text-fill: #bfbfbf;" styleClass="labelTXT" text="E-Mail" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label style="-fx-text-fill: #bfbfbf;" styleClass="labelTXT" text="School" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label style="-fx-text-fill: #bfbfbf;" styleClass="labelTXT" text="Subject" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Label style="-fx-text-fill: #bfbfbf;" text="Person Details" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.rowSpan="1">
+              <font>
+                <Font size="17.0" />
+              </font>
+            </Label>
+            <GridPane alignment="BASELINE_RIGHT" gridLinesVisible="false" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-1.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+              <children>
+                <Button id="btnDel" mnemonicParsing="false" onAction="#handleButtonDelete" prefWidth="131.0" style="" text="delete" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
+                  <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x1" />
+                  </GridPane.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#handleButtonMail" prefWidth="112.0" style="" text="mail" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
+                <Button id="btnEdit" fx:id="saveButton" cancelButton="false" mnemonicParsing="false" onAction="#handleButtonSave" opacity="1.0" prefWidth="116.0" style="" text="save" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="34.0" vgrow="ALWAYS" />
+              </rowConstraints>
+              <GridPane.margin>
+                <Insets bottom="20.0" right="20.0" />
+              </GridPane.margin>
+            </GridPane>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" maxWidth="176.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="149.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="176.0" prefWidth="122.0" />
+          </columnConstraints>
+          <padding>
+            <Insets bottom="10.0" left="15.0" top="10.0" />
+          </padding>
+          <rowConstraints>
+            <RowConstraints maxHeight="41.0" minHeight="30.0" prefHeight="36.0" vgrow="NEVER" />
+            <RowConstraints fillHeight="true" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="134.0" vgrow="ALWAYS" />
+          </rowConstraints>
+        </GridPane>
+      </items>
+    </SplitPane>
+  </children>
 </AnchorPane>
