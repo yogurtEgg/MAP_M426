@@ -46,21 +46,39 @@ public class MapController {
         this.newestID = 0;
 
         //TEST
-        Person per1 = new Person("Peter", "Meier", "mila@srtsrtk.ch", "BBW", "Mathe", 0);
-        Person per2 = new Person("Hans", "Muster", "mail@aitq54zl.ch", "KBW", "Franz", 1);
-        Person per3 = new Person("Ueli", "Müller", "mall@aasdfil.ch", "Ber", "Deutsch", 2);
-        Person per4 = new Person("Freni", "Kater", "maal@aasdfl.ch", "uec", "Yeet",3);
+        Person per0 = new Person("Test", "Teach", "test.teach@school.ch", "school", "subject", 0);
+        Person per1 = new Person("Jaime", "Oberle", "jaime.oberle@bbw.ch", "BBW", "M122, M104", 1);
+        Person per2 = new Person("", "Lüthi", "laure.luethi@bbw.ch", "BBW", "M120, M326, M226A", 2);
+        Person per3 = new Person("", "Cavuoti", "mall@bbw.ch", "BWW", "M426", 3);
+        Person per4 = new Person("Leander", "Schickling", "leander.schickling@kbw.ch", "KBW", "Deutsch",4);
+        Person per5 = new Person("", "Rogg", "luzia.rogg@kbw.ch", "KBW", "Mathe", 5);
+        Person per6 = new Person("Kamelia", "Merrad", "kamelia.merrad@kbw.ch", "KBW", "Franz", 6);
+        Person per7 = new Person("", "Cavicciolo", "claudio.Cavicciolo@kbw.ch", "KBW", "Franz", 7);
+        Person per8 = new Person("Rahel", "Solenthaler", "rahel.solenthaler@kbw.ch", "KBW", "Englisch",8);
+        Person per9 = new Person("Peter", "Meier", "mila@srtsrtk.ch", "BBW", "Mathe", 9);
+        Person per10 = new Person("Hans", "Muster", "mail@aitq54zl.ch", "BBW", "Franz", 10);
+        Person per11 = new Person("Ueli", "Müller", "mall@aasdfil.ch", "BWW", "Deutsch", 11);
+        Person per12 = new Person("Freni", "Kater", "maal@aasdfl.ch", "KBW", "Yeet",12);
 
         //TEST
+        model.getPeople().add(per0);
         model.getPeople().add(per1);
         model.getPeople().add(per2);
         model.getPeople().add(per3);
         model.getPeople().add(per4);
+        model.getPeople().add(per5);
+        model.getPeople().add(per6);
+        model.getPeople().add(per7);
+        model.getPeople().add(per8);
+        model.getPeople().add(per9);
+        model.getPeople().add(per10);
+        model.getPeople().add(per11);
+        model.getPeople().add(per12);
 
         filteredData.addAll(model.getPeople());
 
         // Listen for changes in master data.
-        // Whenever the master data changes we must also update the filtered data.
+        // Whenever the master data changes, filtered data updates
         model.getPeople().addListener(new ListChangeListener<Person>() {
             @Override
             public void onChanged(Change<? extends Person> change) {
@@ -83,15 +101,19 @@ public class MapController {
 
         //Erstellt Columns der Tabelle
         TableColumn firstNameCol = new TableColumn("First Name");
-        firstNameCol.setMinWidth(100);
+        firstNameCol.setMinWidth(75);
         firstNameCol.setCellValueFactory(
                 new PropertyValueFactory<>("firstName"));
 
         TableColumn lastNameCol = new TableColumn("Last Name");
-        lastNameCol.setMinWidth(100);
+        lastNameCol.setMinWidth(75);
         lastNameCol.setCellValueFactory(
                 new PropertyValueFactory<>("lastName"));
 
+        TableColumn mailCol = new TableColumn("E-Mail");
+        mailCol.setMinWidth(175);
+        mailCol.setCellValueFactory(
+                new PropertyValueFactory<>("mail"));
 
 
         // Listen for text changes in the filter text field
@@ -99,7 +121,6 @@ public class MapController {
             @Override
             public void changed(ObservableValue<? extends String> observable,
                                 String oldValue, String newValue) {
-
                 updateFilteredData();
             }
         });
@@ -108,7 +129,7 @@ public class MapController {
         // Add filtered data to the table
         table.setItems(filteredData);
         //Befüllt Tabelle mit bestehenden Einträgen
-        table.getColumns().addAll(firstNameCol, lastNameCol);
+        table.getColumns().addAll(firstNameCol, lastNameCol, mailCol);
         System.out.println("successfully initialized");
     }
 
@@ -147,16 +168,19 @@ public class MapController {
 
         String lowerCaseFilterString = filterString.toLowerCase();
 
+        //Jeder Eintrag der Person kann gesucht werden, wenn man sie hier einfügt
         if (person.getFirstName().toLowerCase().indexOf(lowerCaseFilterString) != -1) {
             return true;
         } else if (person.getLastName().toLowerCase().indexOf(lowerCaseFilterString) != -1) {
+            return true;
+        } else if (person.getMail().toLowerCase().indexOf(lowerCaseFilterString) != -1) {
             return true;
         }
 
         return false; // Does not match
     }
 
-
+    //sortiert
     private void reapplyTableSortOrder() {
         ArrayList<TableColumn<Person, ?>> sortOrder = new ArrayList<>(table.getSortOrder());
         table.getSortOrder().clear();

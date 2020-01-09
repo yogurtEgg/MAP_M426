@@ -1,45 +1,47 @@
 .button {
     -fx-background-color: #007bff;
-   -fx-text-fill: #bfbfbf;
+   -fx-text-fill: #bbbbbb;
 }
 
 .formBG {
-   -fx-background-color: #e7e7e7;
+    -fx-text-fill: #bbbbbb;
+   -fx-background-color: #454545;
 }
 
 .labelTXT {
-
-    -fx-text-fill: #e7e7e7;
+    -fx-text-fill: #bbbbbb;
 }
 
 .menu .label {
-    -fx-text-fill: #e7e7e7;
+    -fx-text-fill: #bbbbbb;
 }
 
 .menu-item:focused {
     -fx-background-color: #007bff;
-   -fx-text-fill: #bfbfbf;
+   -fx-text-fill: #bbbbbb;
 }
 
 .menu:hover {
-                -fx-background-color: #007bff;
-               -fx-text-fill: #bfbfbf;
-            }
-            .menu:showing {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #bbbbbb;
+}
+
+.menu:showing {
     -fx-background-color: #007bff;
    -fx-text-fill: #bfbfbf;
 }
 
 .menuBG {
-    -fx-background-color: #404040;
+    -fx-background-color: #2b2b2b;
 }
 
 .splitpane {
-     -fx-background-color: #9c9c9c;
+     -fx-background-color: #343434;
     }
 
 .tableBG {
-        -fx-background-color: #e7e7e7;
+    -fx-base: #2b2b2b;
+    -fx-background-color: #e7e7e7;
 }
 
     .table-row-cell:selected {
