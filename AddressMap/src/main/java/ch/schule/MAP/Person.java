@@ -1,4 +1,4 @@
-package ch.schule.AdressMAP;
+package ch.schule.MAP;
 
 public class Person {
     private String firstName;

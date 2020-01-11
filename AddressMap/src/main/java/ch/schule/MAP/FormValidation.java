@@ -1,4 +1,4 @@
-package ch.schule.AddressApp;
+package ch.schule.MAP;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

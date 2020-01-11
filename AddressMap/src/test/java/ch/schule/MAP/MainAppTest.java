@@ -1,4 +1,4 @@
-package ch.schule.AdressMAP;
+package ch.schule.MAP;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

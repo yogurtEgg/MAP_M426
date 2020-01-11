@@ -5,26 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<<<<<<< HEAD
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.schule.AddressApp.RootController">
-  <top>
-    <MenuBar BorderPane.alignment="CENTER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleButtonClose" text="Close" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Mail">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleButtonMail" text="Send Mail" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About" fx:id="handleButtonAbout" />
-=======
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.AdressMAP.RootController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.MAP.RootController">
   <top>
     <MenuBar styleClass="menuBG" BorderPane.alignment="CENTER">
       <menus>
@@ -41,8 +22,7 @@
         <Menu mnemonicParsing="false" styleClass="menuBG, labelTXT" text="About">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#handleButtonKBW" styleClass="menuBG, labelTXT" text="KBW E-Mails" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleButtonBBW" styleClass="menuBG, labelTXT" text="BBW E-Mails" />
->>>>>>> Searchbar
+            <MenuItem mnemonicParsing="false" onAction="#handleButtonBBW" styleClass="menuBG, labelTXT" text="BBW E-Mails" />
           </items>
         </Menu>
       </menus>

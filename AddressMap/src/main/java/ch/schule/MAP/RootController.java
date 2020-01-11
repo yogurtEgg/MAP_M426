@@ -1,15 +1,11 @@
 
-package ch.schule.AdressMAP;
+package ch.schule.MAP;
 
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
-import javafx.stage.Popup;
-import javafx.stage.Stage;
 
 
 import java.awt.*;

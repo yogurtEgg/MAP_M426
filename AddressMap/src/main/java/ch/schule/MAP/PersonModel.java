@@ -1,4 +1,4 @@
-package ch.schule.AdressMAP;
+package ch.schule.MAP;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
