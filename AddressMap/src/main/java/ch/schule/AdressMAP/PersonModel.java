@@ -1,6 +1,4 @@
-package ch.schule.AddressApp;
-
-import java.util.ArrayList;
+package ch.schule.AdressMAP;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

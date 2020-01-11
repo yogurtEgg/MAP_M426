@@ -31,7 +31,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>ch.schule.AddressApp.MainApp</mainClass>
+        <mainClass>ch.schule.AdressMAP.MainApp</mainClass>
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>

@@ -1,4 +1,4 @@
-package ch.schule.AddressApp;
+package ch.schule.AdressMAP;
 
 import java.io.IOException;
 
@@ -34,6 +34,7 @@ public class MainApp extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
+            scene.getStylesheets().add("styles/styles.css");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
