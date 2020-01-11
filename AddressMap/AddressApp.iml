@@ -35,5 +35,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.testfx:testfx-junit:4.0.15-alpha" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.testfx:testfx-core:4.0.15-alpha" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.11.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:18.0.0" level="project" />
   </component>
 </module>
