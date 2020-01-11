@@ -38,7 +38,7 @@ public class MapController {
     private PersonModel model;
     private FormValidation formValidation;
     private Integer newestID;
-    private Person selectedPerson;
+    public static Person selectedPerson;
 
     public MapController() {
         this.model = new PersonModel();
@@ -193,7 +193,7 @@ public class MapController {
      *
      * @param person Ausgewählte Person
      */
-    private void setPerson(Person person) {
+    public void setPerson(Person person) {
         firstname.setText(person.getFirstName());
         lastname.setText(person.getLastName());
         eMail.setText(person.getMail());
@@ -306,10 +306,15 @@ public class MapController {
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
             if (desktop.isSupported(Desktop.Action.MAIL)) {
-                URI mailto = new URI("mailto:" + eMail.getText());
+                URI mailto = new URI("mailto:" + selectedPerson.getMail());
                 desktop.mail(mailto);
-                System.out.println("Mail to " +eMail.getText() + "send");
+                System.out.println("Mail to " +selectedPerson.getMail() + "send");
             }
         }
     }
+    public Person getSelectedPerson(){
+        return selectedPerson;
+    }
+
+
 }
