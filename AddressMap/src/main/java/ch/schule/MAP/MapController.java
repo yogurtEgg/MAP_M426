@@ -50,15 +50,15 @@ public class MapController {
         Person per1 = new Person("Jaime", "Oberle", "jaime.oberle@bbw.ch", "BBW", "M122, M104", 1);
         Person per2 = new Person("", "Lüthi", "laure.luethi@bbw.ch", "BBW", "M120, M326, M226A", 2);
         Person per3 = new Person("", "Cavuoti", "mall@bbw.ch", "BWW", "M426", 3);
-        Person per4 = new Person("Leander", "Schickling", "leander.schickling@kbw.ch", "KBW", "Deutsch",4);
+        Person per4 = new Person("Leander", "Schickling", "leander.schickling@kbw.ch", "KBW", "Deutsch", 4);
         Person per5 = new Person("", "Rogg", "luzia.rogg@kbw.ch", "KBW", "Mathe", 5);
         Person per6 = new Person("Kamelia", "Merrad", "kamelia.merrad@kbw.ch", "KBW", "Franz", 6);
         Person per7 = new Person("", "Cavicciolo", "claudio.Cavicciolo@kbw.ch", "KBW", "Franz", 7);
-        Person per8 = new Person("Rahel", "Solenthaler", "rahel.solenthaler@kbw.ch", "KBW", "Englisch",8);
+        Person per8 = new Person("Rahel", "Solenthaler", "rahel.solenthaler@kbw.ch", "KBW", "Englisch", 8);
         Person per9 = new Person("Peter", "Meier", "mila@srtsrtk.ch", "BBW", "Mathe", 9);
         Person per10 = new Person("Hans", "Muster", "mail@aitq54zl.ch", "BBW", "Franz", 10);
         Person per11 = new Person("Ueli", "Müller", "mall@aasdfil.ch", "BWW", "Deutsch", 11);
-        Person per12 = new Person("Freni", "Kater", "maal@aasdfl.ch", "KBW", "Yeet",12);
+        Person per12 = new Person("Freni", "Kater", "maal@aasdfl.ch", "KBW", "Yeet", 12);
 
         //TEST
         model.getPeople().add(per0);
@@ -232,32 +232,26 @@ public class MapController {
     private void handleButtonSave(ActionEvent event) {
         boolean test = textfieldNotNull();
         if (!textfieldNotNull()) {
-            if (school.getText().length() != 3) {
-                requiredSchool.setText("Needs exactly three letters");
-                System.out.println("error while saving");
+            Person p = new Person();
+            p.setSubject(subject.getText());
+            p.setSchool(school.getText());
+            p.setMail(eMail.getText());
+            p.setFirstName(firstname.getText());
+            p.setLastName(lastname.getText());
+            if (model.personExists(selectedPerson)) {
+                selectedPerson.setLastName(lastname.getText());
+                selectedPerson.setFirstName(firstname.getText());
+                selectedPerson.setMail(eMail.getText());
+                selectedPerson.setSchool(school.getText());
+                selectedPerson.setSubject(subject.getText());
+                //refreshed Tabelle
+                table.refresh();
+                System.out.println("succesfully edited");
             } else {
-                Person p = new Person();
-                p.setSubject(subject.getText());
-                p.setSchool(school.getText());
-                p.setMail(eMail.getText());
-                p.setFirstName(firstname.getText());
-                p.setLastName(lastname.getText());
-                if (model.personExists(selectedPerson)) {
-                    selectedPerson.setLastName(lastname.getText());
-                    selectedPerson.setFirstName(firstname.getText());
-                    selectedPerson.setMail(eMail.getText());
-                    selectedPerson.setSchool(school.getText());
-                    selectedPerson.setSubject(subject.getText());
-                    //refreshed Tabelle
-                    table.refresh();
-                    System.out.println("succesfully edited");
-                } else {
-                    p.setID(newestID++);
-                    model.addPerson(p);
-                    table.refresh();
-                    System.out.println("succesfully added");
-                }
-
+                p.setID(newestID++);
+                model.addPerson(p);
+                table.refresh();
+                System.out.println("succesfully added");
             }
         }
     }
@@ -308,11 +302,12 @@ public class MapController {
             if (desktop.isSupported(Desktop.Action.MAIL)) {
                 URI mailto = new URI("mailto:" + selectedPerson.getMail());
                 desktop.mail(mailto);
-                System.out.println("Mail to " +selectedPerson.getMail() + "send");
+                System.out.println("Mail to " + selectedPerson.getMail() + "send");
             }
         }
     }
-    public Person getSelectedPerson(){
+
+    public Person getSelectedPerson() {
         return selectedPerson;
     }
 
