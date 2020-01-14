@@ -45,7 +45,14 @@ public class MapController {
         this.formValidation = new FormValidation();
         this.newestID = 0;
 
-        //TEST
+        //check the connection to the database
+        if(model.isDbConnected()){
+            System.out.println("connected");
+        } else {
+            System.out.println("not connected");
+        }
+
+        /*TEST
         Person per0 = new Person("Test", "Teach", "test.teach@school.ch", "school", "subject", 0);
         Person per1 = new Person("Jaime", "Oberle", "jaime.oberle@bbw.ch", "BBW", "M122, M104", 1);
         Person per2 = new Person("", "Lüthi", "laure.luethi@bbw.ch", "BBW", "M120, M326, M226A", 2);
@@ -73,7 +80,7 @@ public class MapController {
         model.getPeople().add(per9);
         model.getPeople().add(per10);
         model.getPeople().add(per11);
-        model.getPeople().add(per12);
+        model.getPeople().add(per12);*/
 
         filteredData.addAll(model.getPeople());
 
@@ -310,6 +317,4 @@ public class MapController {
     public Person getSelectedPerson() {
         return selectedPerson;
     }
-
-
 }

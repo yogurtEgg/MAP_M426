@@ -3,11 +3,22 @@ package ch.schule.MAP;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class PersonModel {
 	 private final ObservableList<Person> people;
 
+    //DATABASE CONNECTION AND ArrayList
+    Connection connection;
+    SqliteConnection sqliteConnection = new SqliteConnection();
+
     public PersonModel() {
-    	people = FXCollections.observableArrayList();
+    	people = FXCollections.observableArrayList(sqliteConnection.retrieveAll());
+        connection = SqliteConnection.Connector();
+        if(connection == null){
+            System.exit(1);
+        }
     }
 
     //GETTER & SETTER
@@ -38,12 +49,30 @@ public class PersonModel {
         return false;
 
     }
+
     //METHODS
     public void addPerson(Person p){
         people.add(p);
+        databaseRefresh();
     }
 
     public void deletePerson(Person p){
         people.remove(p);
+        sqliteConnection.delete(p.getMail());
+    }
+
+    //Database
+    public boolean isDbConnected() {
+        try {
+            return !connection.isClosed();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    //refreshes all the values in the database (used due to unspecified id)
+    public void databaseRefresh() {
+        sqliteConnection.resetAll(people);
     }
 }
