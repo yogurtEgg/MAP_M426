@@ -22,10 +22,13 @@ public class SqliteConnection {
 
     public void insert(Person person) {
         String sql = "INSERT INTO people(id, firstname, lastname, mail, school, subject) VALUES(?,?,?,?,?,?)";
-
         try {
             PreparedStatement statement = Connector().prepareStatement(sql);
-            statement.setInt(1, person.getid());
+            if(person.getid() == null){
+                sql = "INSERT INTO people(id, firstname, lastname, mail, school, subject) VALUES(null,?,?,?,?,?)";
+            } else {
+                statement.setInt(1, person.getid());
+            }
             statement.setString(2, person.getFirstName());
             statement.setString(3, person.getLastName());
             statement.setString(4, person.getMail());
@@ -34,17 +37,6 @@ public class SqliteConnection {
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
-        }
-    }
-
-    public void delete(int id){
-        String sql = "DELETE FROM people WHERE id = ?";
-        try {
-            PreparedStatement statement = Connector().prepareStatement(sql);
-            statement.setInt(1, id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
         }
     }
 
@@ -59,16 +51,15 @@ public class SqliteConnection {
         }
     }
 
-    public Person retrieve(int id){
+    public Person retrieve(String mail){
         String sql = "SELECT id, firstname, lastname, mail, school, subject FROM people";
         try {
             Statement stmt  = Connector().createStatement();
             ResultSet resultSet  = stmt.executeQuery(sql);
 
-
             Person tmp = new Person();
             while (resultSet.next()) {
-                if(resultSet.getInt("id") == id){
+                if(resultSet.getString("mail").equals(mail)){
                     tmp.setFirstName(resultSet.getString("firstname"));
                     tmp.setLastName(resultSet.getString("lastname"));
                     tmp.setMail(resultSet.getString("mail"));
@@ -109,15 +100,14 @@ public class SqliteConnection {
         try {
             PreparedStatement statement = Connector().prepareStatement(sql);
             statement.executeUpdate();
+            for(Person p : people){
+                if(!(p == null)){
+                    insert(p);
+                    System.out.println("Database totally updated");
+                }
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        for(Person p : people){
-            if(!(p == null)){
-                insert(p);
-                System.out.println("Database updated");
-            }
-        }
     }
-
 }

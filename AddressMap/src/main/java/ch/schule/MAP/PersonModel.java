@@ -47,7 +47,6 @@ public class PersonModel {
         }
         System.out.println("does not exist");
         return false;
-
     }
 
     //METHODS

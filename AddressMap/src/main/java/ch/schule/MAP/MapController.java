@@ -52,36 +52,6 @@ public class MapController {
             System.out.println("not connected");
         }
 
-        /*TEST
-        Person per0 = new Person("Test", "Teach", "test.teach@school.ch", "school", "subject", 0);
-        Person per1 = new Person("Jaime", "Oberle", "jaime.oberle@bbw.ch", "BBW", "M122, M104", 1);
-        Person per2 = new Person("", "Lüthi", "laure.luethi@bbw.ch", "BBW", "M120, M326, M226A", 2);
-        Person per3 = new Person("", "Cavuoti", "mall@bbw.ch", "BWW", "M426", 3);
-        Person per4 = new Person("Leander", "Schickling", "leander.schickling@kbw.ch", "KBW", "Deutsch", 4);
-        Person per5 = new Person("", "Rogg", "luzia.rogg@kbw.ch", "KBW", "Mathe", 5);
-        Person per6 = new Person("Kamelia", "Merrad", "kamelia.merrad@kbw.ch", "KBW", "Franz", 6);
-        Person per7 = new Person("", "Cavicciolo", "claudio.Cavicciolo@kbw.ch", "KBW", "Franz", 7);
-        Person per8 = new Person("Rahel", "Solenthaler", "rahel.solenthaler@kbw.ch", "KBW", "Englisch", 8);
-        Person per9 = new Person("Peter", "Meier", "mila@srtsrtk.ch", "BBW", "Mathe", 9);
-        Person per10 = new Person("Hans", "Muster", "mail@aitq54zl.ch", "BBW", "Franz", 10);
-        Person per11 = new Person("Ueli", "Müller", "mall@aasdfil.ch", "BWW", "Deutsch", 11);
-        Person per12 = new Person("Freni", "Kater", "maal@aasdfl.ch", "KBW", "Yeet", 12);
-
-        //TEST
-        model.getPeople().add(per0);
-        model.getPeople().add(per1);
-        model.getPeople().add(per2);
-        model.getPeople().add(per3);
-        model.getPeople().add(per4);
-        model.getPeople().add(per5);
-        model.getPeople().add(per6);
-        model.getPeople().add(per7);
-        model.getPeople().add(per8);
-        model.getPeople().add(per9);
-        model.getPeople().add(per10);
-        model.getPeople().add(per11);
-        model.getPeople().add(per12);*/
-
         filteredData.addAll(model.getPeople());
 
         // Listen for changes in master data.
@@ -122,7 +92,6 @@ public class MapController {
         mailCol.setCellValueFactory(
                 new PropertyValueFactory<>("mail"));
 
-
         // Listen for text changes in the filter text field
         search.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -132,14 +101,12 @@ public class MapController {
             }
         });
 
-
         // Add filtered data to the table
         table.setItems(filteredData);
         //Befüllt Tabelle mit bestehenden Einträgen
         table.getColumns().addAll(firstNameCol, lastNameCol, mailCol);
         System.out.println("successfully initialized");
     }
-
 
     /**
      * Updates the filteredData to contain all data from the masterData that
@@ -153,11 +120,9 @@ public class MapController {
                 filteredData.add(p);
             }
         }
-
         // Must re-sort table after items changed
         reapplyTableSortOrder();
     }
-
 
     /**
      * Returns true if the person matches the current filter. Lower/Upper case
@@ -194,7 +159,6 @@ public class MapController {
         table.getSortOrder().addAll(sortOrder);
     }
 
-
     /**
      * Befüllt Textfelder mit Informationen der Person
      *
@@ -209,7 +173,6 @@ public class MapController {
         selectedPerson = person;
         System.out.println("New selected Person");
     }
-
 
     /**
      * New Button
@@ -254,11 +217,13 @@ public class MapController {
                 //refreshed Tabelle
                 table.refresh();
                 System.out.println("succesfully edited");
+                model.databaseRefresh();
             } else {
                 p.setID(newestID++);
                 model.addPerson(p);
                 table.refresh();
                 System.out.println("succesfully added");
+                model.databaseRefresh();
             }
         }
     }
