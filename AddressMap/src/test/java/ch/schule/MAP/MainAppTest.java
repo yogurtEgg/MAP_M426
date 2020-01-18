@@ -11,8 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.matcher.control.TextInputControlMatchers.hasText;
 
@@ -50,7 +49,7 @@ public class MainAppTest extends ApplicationTest {
         write("School");
         clickOn("#subject");
         write("Subject");
-        clickOn("#saveButton");
+        clickOn("#btnNew");
 
         //CHECK THE VALUES THAT ARE STORED
         verifyThat("#firstname", hasText("Firstname"));
@@ -62,12 +61,6 @@ public class MainAppTest extends ApplicationTest {
 
     @Test
     public void editValues() {
-        /*
-         PROBLEM:
-         Da es nicht möglich ist über TestFX auf die Tabelle zuzugreifen, kann CRUD nicht
-         korrekt getestet werden, denn um Werte zu editieren muss zuerst an der Seite eine Person
-         ausgewählt werden.
-        */
         clickOn("#firstname");
         write("Firstname");
         clickOn("#lastname");
@@ -78,23 +71,22 @@ public class MainAppTest extends ApplicationTest {
         write("School");
         clickOn("#subject");
         write("Subject");
-        clickOn("#saveButton");
+        clickOn("#btnNew");
 
         //EDIT
         clickOn("#firstname");
         write("Edited");
-        clickOn("#saveButton");
+        clickOn("#btnEdit");
+
+        clickOn("#firstNameCol");
+        /* todo
+        *   access sidebar to check if values have changed
+        *   -> and then click on them again the check the values.
+        * */
     }
 
     @Test
     public void delValues() {
-        /*
-         PROBLEM:
-         Da es nicht möglich ist über TestFX auf die Tabelle zuzugreifen, kann die delete Funkion nicht
-         korrekt getestet werden, denn um Werte zu löschen muss zuerst an der Seite eine Person
-         ausgewählt werden.
-        */
-
         clickOn("#firstname");
         write("Firstname");
         clickOn("#lastname");
@@ -105,42 +97,15 @@ public class MainAppTest extends ApplicationTest {
         write("School");
         clickOn("#subject");
         write("Subject");
-        clickOn("#deleteButton");
-    }
 
-    @Test
-    public void searchPeople() {
-        /*
-         PROBLEM:
-         Da es nicht möglich ist über TestFX auf die Tabelle zuzugreifen, kann die search Funktion nicht
-         korrekt getestet werden, denn um die Suchresultate zu vergleichen müsste man auf die Tabelle zugreifen.
+        clickOn("#btnDel");
+       /* todo
+           find out how to test if a texField has no Text inside
         */
-
-        clickOn("#firstname");
-        write("Firstname");
-        clickOn("#lastname");
-        write("Lastname");
-        clickOn("#eMail");
-        write("a.b@c.com");
-        clickOn("#school");
-        write("School");
-        clickOn("#subject");
-        write("Subject");
-        clickOn("#saveButton");
-
-        //search part
-        clickOn("#search");
-        write("Firstname");
-    }
-
-    @Test
-    public void sendMail() {
-        /*
-         PROBLEM:
-         Da es nicht möglich ist über TestFX auf die Tabelle zuzugreifen, kann die Mail Funktion nicht
-         korrekt getestet werden, denn um eine Mail zu verschicken müsste man auf die Tabelle zugreifen können.
-        */
-
-        clickOn("#mailButton");
+        /*verifyThat("#firstname", hasText(""));
+        verifyThat("#lastname", hasText(""));
+        verifyThat("#eMail", hasText(""));
+        verifyThat("#school", hasText(""));
+        verifyThat("#subject", hasText(""));*/
     }
 }

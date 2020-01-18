@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -18,12 +17,9 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("MAP");
-        Image im = new Image("/images/icon.jpg");
-        primaryStage.getIcons().add(im);
+        this.primaryStage.setTitle("AddressApp");
         initRootLayout();
         showPersonOverview();
-
     }
 
     /**
@@ -38,7 +34,6 @@ public class MainApp extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            scene.getStylesheets().add("styles/styles.css");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

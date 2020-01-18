@@ -92,6 +92,7 @@ public class MapController {
         mailCol.setCellValueFactory(
                 new PropertyValueFactory<>("mail"));
 
+
         // Listen for text changes in the filter text field
         search.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -101,12 +102,14 @@ public class MapController {
             }
         });
 
+
         // Add filtered data to the table
         table.setItems(filteredData);
         //Befüllt Tabelle mit bestehenden Einträgen
         table.getColumns().addAll(firstNameCol, lastNameCol, mailCol);
         System.out.println("successfully initialized");
     }
+
 
     /**
      * Updates the filteredData to contain all data from the masterData that
@@ -120,9 +123,11 @@ public class MapController {
                 filteredData.add(p);
             }
         }
+
         // Must re-sort table after items changed
         reapplyTableSortOrder();
     }
+
 
     /**
      * Returns true if the person matches the current filter. Lower/Upper case
@@ -152,12 +157,13 @@ public class MapController {
         return false; // Does not match
     }
 
-    //sortiert
+    //sortiert Tabelle
     private void reapplyTableSortOrder() {
         ArrayList<TableColumn<Person, ?>> sortOrder = new ArrayList<>(table.getSortOrder());
         table.getSortOrder().clear();
         table.getSortOrder().addAll(sortOrder);
     }
+
 
     /**
      * Befüllt Textfelder mit Informationen der Person
@@ -173,6 +179,7 @@ public class MapController {
         selectedPerson = person;
         System.out.println("New selected Person");
     }
+
 
     /**
      * New Button
@@ -208,6 +215,8 @@ public class MapController {
             p.setMail(eMail.getText());
             p.setFirstName(firstname.getText());
             p.setLastName(lastname.getText());
+
+            //Person existiert schon, wird verändert
             if (model.personExists(selectedPerson)) {
                 selectedPerson.setLastName(lastname.getText());
                 selectedPerson.setFirstName(firstname.getText());
@@ -216,14 +225,16 @@ public class MapController {
                 selectedPerson.setSubject(subject.getText());
                 //refreshed Tabelle
                 table.refresh();
+                //refreshed ObservableList
+                model.refresh(selectedPerson);
                 System.out.println("succesfully edited");
-                model.databaseRefresh();
+                System.out.println(model.getPeople());
+            //Person existiert nicht, wird hinzugefügt
             } else {
                 p.setID(newestID++);
                 model.addPerson(p);
                 table.refresh();
                 System.out.println("succesfully added");
-                model.databaseRefresh();
             }
         }
     }

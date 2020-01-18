@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="359.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.MAP.MapController">
+<AnchorPane prefHeight="359.0" prefWidth="679.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.schule.MAP.MapController">
     <children>
         <SplitPane disable="false" dividerPositions="0.40029542097488924" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="false" opacity="1.0" prefHeight="300.0" prefWidth="600.0" style=" -fx-background-color: #343434;" visible="true" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                     <children>
-                        <Button id="btnNew" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonNew" prefWidth="-1.0" style="" text="new" GridPane.columnIndex="0" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                        <Button id="btnNew" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonNew" prefWidth="-1.0" style="-fx-background-color: #007bff;-fx-text-fill: #bbbbbb;" text="new" GridPane.columnIndex="0" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                             <GridPane.margin>
                                 <Insets left="5.0" right="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #404040;" styleClass="tableBG" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
-                        <TextField id="search" fx:id="search" prefWidth="-1.0" style="" styleClass="formBG" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" style="-fx-base:#2b2b2b;-fx-background-color:#e7e7e7;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+                        <TextField fx:id="search" prefWidth="-1.0" style="-fx-text-fill: #bbbbbb;-fx-background-color: #454545;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                             <GridPane.margin>
                                 <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                             </GridPane.margin>
@@ -44,39 +47,39 @@
                 </GridPane>
                 <GridPane fx:id="grid" gridLinesVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="403.0">
                     <children>
-                        <TextField fx:id="firstname" alignment="CENTER_LEFT" style="" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                        <TextField fx:id="firstname" alignment="CENTER_LEFT" style="-fx-text-fill: #bbbbbb;-fx-background-color: #454545;" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" top="5.0" fx:id="x2" />
                             </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="lastname" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="2" />
-                        <TextField fx:id="eMail" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="3" />
-                        <TextField fx:id="school" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="4" />
-                        <TextField fx:id="subject" styleClass="formBG" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="5" />
+                        <TextField fx:id="lastname" style="-fx-text-fill: #bbbbbb;-fx-background-color: #454545;" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                        <TextField fx:id="eMail" style="-fx-text-fill: #bbbbbb;-fx-background-color: #454545;" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                        <TextField fx:id="school" style="-fx-text-fill: #bbbbbb;-fx-background-color: #454545;" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="4" />
+                        <TextField fx:id="subject" style="-fx-text-fill: #bbbbbb;-fx-background-color: #454545;" text="" visible="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="5" />
 
-                        <Label fx:id="requiredLastname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="labelTXT" text="" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label fx:id="requiredMail" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="labelTXT" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Label fx:id="requiredSchool" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="labelTXT" text="" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <Label fx:id="requiredSubject" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="labelTXT" text="" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <Label styleClass="labelTXT" text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <Label styleClass="labelTXT" text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <Label prefHeight="26.0" prefWidth="54.0" styleClass="labelTXT" text="E-Mail" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <Label styleClass="labelTXT" text="School" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <Label styleClass="labelTXT" text="Subject" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                        <Label styleClass="labelTXT" text="Person Details" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                        <Label fx:id="requiredLastname" style="-fx-text-fill: #bbbbbb;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="requiredMail" style="-fx-text-fill: #bbbbbb;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="requiredSchool" style="-fx-text-fill: #bbbbbb;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label fx:id="requiredSubject"  style="-fx-text-fill: #bbbbbb;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Label style="-fx-text-fill: #bbbbbb;" text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label style="-fx-text-fill: #bbbbbb;" text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label style="-fx-text-fill: #bbbbbb;" text="E-Mail" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label style="-fx-text-fill: #bbbbbb;" text="School" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Label style="-fx-text-fill: #bbbbbb;" text="Subject" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Label style="-fx-text-fill: #bbbbbb;" text="Person Details" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3">
                             <font>
                                 <Font size="17.0" />
                             </font>
                         </Label>
                         <GridPane alignment="BASELINE_RIGHT" gridLinesVisible="false" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-1.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
                             <children>
-                                <Button id="deleteButton" mnemonicParsing="false" onAction="#handleButtonDelete" prefWidth="131.0" style="" text="delete" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
+                                <Button id="btnDel" mnemonicParsing="false" onAction="#handleButtonDelete" prefWidth="131.0" style="-fx-background-color: #007bff;-fx-text-fill: #bbbbbb;" text="delete" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x1" />
                                     </GridPane.margin>
                                 </Button>
-                                <Button id="mailButton" mnemonicParsing="false" onAction="#handleButtonMail" prefWidth="112.0" style="" text="mail" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
-                                <Button id="saveButton" fx:id="saveButton" cancelButton="false" mnemonicParsing="false" onAction="#handleButtonSave" opacity="1.0" prefWidth="116.0" style="" text="save" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
+                                <Button mnemonicParsing="false" onAction="#handleButtonMail" prefWidth="112.0" style="-fx-background-color: #007bff;-fx-text-fill: #bbbbbb;" text="mail" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
+                                <Button id="btnEdit" fx:id="saveButton" cancelButton="false" mnemonicParsing="false" onAction="#handleButtonSave" opacity="1.0" prefWidth="116.0" style="-fx-background-color: #007bff;-fx-text-fill: #bbbbbb;" text="save" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
                             </children>
                             <columnConstraints>
                                 <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />

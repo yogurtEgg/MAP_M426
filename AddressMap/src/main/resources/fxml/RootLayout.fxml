@@ -7,22 +7,22 @@
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.schule.MAP.RootController">
   <top>
-    <MenuBar styleClass="menuBG" BorderPane.alignment="CENTER">
+    <MenuBar style="-fx-background-color: #8d8d8d;" BorderPane.alignment="CENTER">
       <menus>
-        <Menu mnemonicParsing="false" styleClass="menuBG, labelTXT" text="File">
+        <Menu mnemonicParsing="false" style="-fx-background-color:#8d8d8d;-fx-text-fill:#bbbbbb;" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleButtonClose" styleClass="menuBG, labelTXT" text="Close" />
+            <MenuItem mnemonicParsing="false" onAction="#handleButtonClose" text="Close" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" styleClass="menuBG, labelTXT" text="Mail">
+        <Menu mnemonicParsing="false" style="-fx-background-color: #8d8d8d;-fx-text-fill: #bbbbbb;" text="Mail">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleButtonMail" styleClass="menuBG, labelTXT" text="Send Mail" />
+            <MenuItem mnemonicParsing="false" onAction="#handleButtonMail" text="Send Mail" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" styleClass="menuBG, labelTXT" text="About">
+        <Menu mnemonicParsing="false" style="-fx-background-color: #8d8d8d;-fx-text-fill: #bbbbbb;" text="About">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleButtonKBW" styleClass="menuBG, labelTXT" text="KBW E-Mails" />
-            <MenuItem mnemonicParsing="false" onAction="#handleButtonBBW" styleClass="menuBG, labelTXT" text="BBW E-Mails" />
+            <MenuItem mnemonicParsing="false" onAction="#handleButtonKBW" text="KBW E-Mails" />
+            <MenuItem mnemonicParsing="false" onAction="#handleButtonBBW" text="BBW E-Mails" />
           </items>
         </Menu>
       </menus>
