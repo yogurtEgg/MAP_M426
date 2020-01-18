@@ -3,6 +3,9 @@ package ch.schule.MAP;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * Checks if the Fields are Empty
+ */
 public class FormValidation {
     public static boolean textFieldNotEmpty(TextField t){
         boolean b = false;

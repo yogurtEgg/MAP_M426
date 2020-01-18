@@ -2,17 +2,16 @@ package ch.schule.MAP;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.collections.FXCollections;
 
 import java.awt.*;
 import java.io.IOException;
@@ -21,20 +20,16 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class MapController {
-    @FXML
-    private GridPane grid;
+
     @FXML
     private TextField firstname, lastname, eMail, subject, school, search;
     @FXML
     private Label requiredLastname, requiredMail, requiredSchool, requiredSubject;
     @FXML
-    private Button saveButton;
-    @FXML
     private TableView table;
 
 
     private ObservableList<Person> filteredData = FXCollections.observableArrayList();
-
     private PersonModel model;
     private FormValidation formValidation;
     private Integer newestID;
@@ -51,7 +46,6 @@ public class MapController {
         } else {
             System.out.println("not connected");
         }
-
         filteredData.addAll(model.getPeople());
 
         // Listen for changes in master data.
@@ -65,18 +59,16 @@ public class MapController {
     }
 
     public void initialize() {
-        //Tabelle wird initialized. addListener = Funktion
-        //Ermölicht Selektierung
+        //Enables Selection
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                //Bestätigung selektierung
+                //Confirms selection
                 System.out.println("Selection: " + newSelection);
-                //setPerson Methode aufgerufen
                 setPerson((Person) newSelection);
             }
         });
 
-        //Erstellt Columns der Tabelle
+        //Creates Columns in the tabel
         TableColumn firstNameCol = new TableColumn("First Name");
         firstNameCol.setMinWidth(75);
         firstNameCol.setCellValueFactory(
@@ -93,7 +85,6 @@ public class MapController {
                 new PropertyValueFactory<>("mail"));
 
 
-        // Listen for text changes in the filter text field
         search.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable,
@@ -105,7 +96,6 @@ public class MapController {
 
         // Add filtered data to the table
         table.setItems(filteredData);
-        //Befüllt Tabelle mit bestehenden Einträgen
         table.getColumns().addAll(firstNameCol, lastNameCol, mailCol);
         System.out.println("successfully initialized");
     }
@@ -142,7 +132,6 @@ public class MapController {
             // No filter --> Add all.
             return true;
         }
-
         String lowerCaseFilterString = filterString.toLowerCase();
 
         //Jeder Eintrag der Person kann gesucht werden, wenn man sie hier einfügt
@@ -157,7 +146,7 @@ public class MapController {
         return false; // Does not match
     }
 
-    //sortiert Tabelle
+    //sorts tabel
     private void reapplyTableSortOrder() {
         ArrayList<TableColumn<Person, ?>> sortOrder = new ArrayList<>(table.getSortOrder());
         table.getSortOrder().clear();
@@ -183,7 +172,6 @@ public class MapController {
 
     /**
      * New Button
-     *
      * @param event
      */
     @FXML
@@ -202,7 +190,6 @@ public class MapController {
 
     /**
      * save Button
-     *
      * @param event
      */
     @FXML
@@ -216,20 +203,20 @@ public class MapController {
             p.setFirstName(firstname.getText());
             p.setLastName(lastname.getText());
 
-            //Person existiert schon, wird verändert
+            //Person that exits will be changed
             if (model.personExists(selectedPerson)) {
                 selectedPerson.setLastName(lastname.getText());
                 selectedPerson.setFirstName(firstname.getText());
                 selectedPerson.setMail(eMail.getText());
                 selectedPerson.setSchool(school.getText());
                 selectedPerson.setSubject(subject.getText());
-                //refreshed Tabelle
+                //refreshed tabel
                 table.refresh();
                 //refreshed ObservableList
                 model.refresh(selectedPerson);
                 System.out.println("succesfully edited");
                 System.out.println(model.getPeople());
-            //Person existiert nicht, wird hinzugefügt
+            //Person does not exist will be
             } else {
                 p.setID(newestID++);
                 model.addPerson(p);
@@ -241,7 +228,6 @@ public class MapController {
 
     /**
      * deletes person
-     *
      * @param event
      */
     @FXML
@@ -258,7 +244,6 @@ public class MapController {
 
     /**
      * Opens a Mail-Program
-     *
      * @param actionEvent
      */
     public void handleButtonMail(ActionEvent actionEvent) throws IOException, URISyntaxException {
@@ -290,7 +275,4 @@ public class MapController {
         }
     }
 
-    public Person getSelectedPerson() {
-        return selectedPerson;
-    }
 }
